@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from portal.views import sign_in_view
+from task.views import index
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', sign_in_view, name='home'),
+    path('task/', index, name='task'),
 
 ]

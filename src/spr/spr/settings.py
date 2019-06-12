@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'student',
     'mentor',
     'parent',
+    'task',
 
 ]
 
@@ -79,7 +80,7 @@ WSGI_APPLICATION = 'spr.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django_db',
+        'NAME': 'reg',
         'USER': 'reg',
         'PASSWORD': 'reg',
         'HOST': 'localhost',
