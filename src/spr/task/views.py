@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import TodoList
+
 def index(request): #the index view
     todos = TodoList.objects.all() #quering all todos with the object manager
     if request.method == "POST": #checking if the request method is a POST
