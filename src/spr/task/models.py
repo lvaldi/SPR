@@ -1,8 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from student.models import Student
-from parent.models import Parent
-from mentor.models import Mentor
+from user.models import User
 
 # Create your models here.
 class TodoList(models.Model):
@@ -12,11 +10,8 @@ class TodoList(models.Model):
     completed = models.BooleanField(default=False)
     in_progress = models.BooleanField(default=False)
     priority = models.PositiveIntegerField(blank=True, null=True)
-    mid = models.ForeignKey(Mentor, models.CASCADE, db_column='mid')
-    sid = models.ForeignKey(Student, models.CASCADE, db_column='sid')
-    pid = models.ForeignKey(Parent, models.CASCADE, db_column='pid')
+    user_id = models.ForeignKey(User, models.CASCADE, db_column='user_id')
 
     class Meta:
         managed = False
         db_table = 'todolist'
-        unique_together = (('mid', 'sid', 'pid'),)

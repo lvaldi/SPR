@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from portal.views import sign_in_view
+from user.views import sign_in_view
 from task.views import index
 
 
