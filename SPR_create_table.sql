@@ -11,10 +11,9 @@ Title VARCHAR(80) NOT NULL,
 Due_Date DATE NOT NULL,
 Completed TINYINT(1),
 In_Progress TINYINT(1),
-Priority_Low TINYINT, 
-Priority_High TINYINT,
+Priority TINYINT, 
 Milestone TEXT,
 PRIMARY KEY (ID),
-FOREIGN KEY (user_id) REFERENCES user(ID)
+FOREIGN KEY (ID) REFERENCES user(ID)
 ON DELETE CASCADE);
 
