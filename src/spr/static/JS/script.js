@@ -14,8 +14,20 @@ function add() {
 	list.appendChild(element);
 
 	// 'addMilestone' is the div id, where new fields are to be added
-	var milestone = document.getElementById("addMilestone");
+	var add_milestone = document.getElementById("addMilestone");
 
 	//Append the element in page (in span).
-	milestone.appendChild(list);
+	add_milestone.appendChild(list);
+}
+
+function parse() {
+	var list = document.createElement("LI");
+	var milestone_list = milestone_var.split(',');
+	var milestone = document.getElementById('milestone')
+	for (var i = 0; i < milestone_list.length; i++) {
+		var list = document.createElement("LI");
+		var textnode = document.createTextNode(milestone_list[i]);
+		list.appendChild(textnode);
+		milestone.appendChild(list);
+	}
 }

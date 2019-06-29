@@ -35,7 +35,7 @@
                             <br>
                             <label for="milestone">milestone</label><br>
                         </ol>
-                        <button class="milestone" type="button" value="Add" onClick=add()>Add Milestone</button>
+                        <button class="milestone" type="button" onClick=add()>Add Milestone</button>
                     </div>
                     <div class="row">
                         <button class="taskAdd" name="taskAdd" type="submit">Add
@@ -45,13 +45,29 @@
                             Tasks</button>
                     </div>
                     <ol class="taskList">
+                        {% for todo in todos %}
+                        <script type="text/javascript">
+                            var milestone_var = "{{todo.milestone}}";
+                        </script>
                         <li class="taskItem">
-                            <input type="checkbox" class="taskCheckbox" name="checkedbox" id="{{ todo.id }}"
+                            
+                            {{todo.title}}
+                            <ul class="taskList">
+                                <li class="taskItem">
+                                    Due Date: {{todo.due_date}} <br>
+                                    Status: {{todo.status}} <br>
+                                    Milestone:
+                                    <ol type="1" id="milestone">
+                                    </ol>                                    
+                                </li>
+                            </ul>
+                            <!-- <input type="checkbox" class="taskCheckbox" name="checkedbox" id="{{ todo.id }}"
                                 value="{{ todo.id }}">
                             <label for="{{ todo.id }}"><span class="complete-">{{ todo.title }}</span></label>
                             <strong class="taskDate"><i class="fa fa-calendar"></i>{{ todo.created }} -
-                                {{ todo.due_date }}</strong>
+                                {{ todo.due_date }}</strong> -->
                         </li>
+                        {% endfor %}
                     </ol><!-- taskList -->
                 </form>
             </div><!-- content -->

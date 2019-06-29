@@ -1,19 +1,17 @@
 
 CREATE TABLE user (
-ID SERIAL NOT NULL,
+ID INT NOT NULL AUTO_INCREMENT,
 Name VARCHAR(50) NOT NULL,
 Role VARCHAR(20) NOT NULL,
 PRIMARY KEY (ID));
 
 CREATE TABLE todolist (
-ID SERIAL NOT NULL,
+ID INT NOT NULL AUTO_INCREMENT,
 Title VARCHAR(80) NOT NULL,
 Due_Date DATE NOT NULL,
-Completed TINYINT(1),
-In_Progress TINYINT(1),
-Priority TINYINT, 
-Milestone TEXT,
-PRIMARY KEY (ID),
-FOREIGN KEY (ID) REFERENCES user(ID)
-ON DELETE CASCADE);
+Status ENUM('Incomplete', 'In Progress', 'Complete'),
+Priority ENUM('1', '2', '3', '4', '5'), 
+Milestone TEXT, 
+PRIMARY KEY (ID));
+
 
