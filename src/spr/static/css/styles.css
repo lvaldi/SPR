@@ -215,6 +215,15 @@ footer {
 footer a {
     color: #f39c12;
 }
+
+.alignright {
+    color: red;
+    float: right;
+}
+
+.alignleft {
+    float: left;
+}
 /* custom checkboxes
 .taskCheckbox {
     -webkit-appearance: none;

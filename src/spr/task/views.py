@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import TodoList
+from .models import *
 
 
 # def index(request, *args, **kwargs):  # the index view
@@ -24,8 +24,11 @@ from .models import TodoList
 
 def index(request, *args, **kwargs):
     todos = TodoList.objects.all()
+    milestones = Milestone.objects.all()
+
     context = {
-        "todos":todos
+        "todos":todos,
+        "milestones":milestones
     }
     return render(request, 'task.html', context)
 

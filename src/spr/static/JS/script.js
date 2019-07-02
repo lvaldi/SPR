@@ -21,7 +21,6 @@ function add() {
 }
 
 function parse() {
-	var list = document.createElement("LI");
 	var milestone_list = milestone_var.split(',');
 	var milestone = document.getElementById('milestone')
 	for (var i = 0; i < milestone_list.length; i++) {

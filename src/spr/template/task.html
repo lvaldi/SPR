@@ -28,7 +28,7 @@
                     <div>
                         <label for="priority">Priority</label>
                         <input type="number" id="priority" class="taskPriority" name="priority" value="priority" min="1"
-                            max="5">
+                            max="3">
                     </div>
                     <div>
                         <ol type="1" id="addMilestone">
@@ -46,26 +46,31 @@
                     </div>
                     <ol class="taskList">
                         {% for todo in todos %}
-                        <script type="text/javascript">
-                            var milestone_var = "{{todo.milestone}}";
-                        </script>
                         <li class="taskItem">
                             
                             {{todo.title}}
+                        
                             <ul class="taskList">
                                 <li class="taskItem">
                                     Due Date: {{todo.due_date}} <br>
-                                    Status: {{todo.status}} <br>
+                                    Priority: {{todo.priority}} <br>
                                     Milestone:
-                                    <ol type="1" id="milestone">
-                                    </ol>                                    
+                                    <ol>
+                                        {% for milestone in milestones %}
+                                        {% if milestone.task_id == todo %}
+                                        <li>
+                                            <div class="alignleft">
+                                                {{milestone.description}}
+                                            </div>
+                                            <div class="alignright">
+                                                {{milestone.status}}
+                                            </div>
+                                        </li>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </ol>                    
                                 </li>
                             </ul>
-                            <!-- <input type="checkbox" class="taskCheckbox" name="checkedbox" id="{{ todo.id }}"
-                                value="{{ todo.id }}">
-                            <label for="{{ todo.id }}"><span class="complete-">{{ todo.title }}</span></label>
-                            <strong class="taskDate"><i class="fa fa-calendar"></i>{{ todo.created }} -
-                                {{ todo.due_date }}</strong> -->
                         </li>
                         {% endfor %}
                     </ol><!-- taskList -->
