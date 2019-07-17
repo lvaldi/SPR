@@ -20,13 +20,13 @@ function add() {
 	add_milestone.appendChild(list);
 }
 
-function parse() {
-	var milestone_list = milestone_var.split(',');
-	var milestone = document.getElementById('milestone')
-	for (var i = 0; i < milestone_list.length; i++) {
-		var list = document.createElement("LI");
-		var textnode = document.createTextNode(milestone_list[i]);
-		list.appendChild(textnode);
-		milestone.appendChild(list);
-	}
-}
+// function parse() {
+// 	var milestone_list = milestone_var.split(',');
+// 	var milestone = document.getElementById('milestone')
+// 	for (var i = 0; i < milestone_list.length; i++) {
+// 		var list = document.createElement("LI");
+// 		var textnode = document.createTextNode(milestone_list[i]);
+// 		list.appendChild(textnode);
+// 		milestone.appendChild(list);
+// 	}
+// }

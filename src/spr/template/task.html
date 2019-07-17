@@ -19,13 +19,6 @@
                         <label for="dueDate">Due Date</label>
                     </div>
                     <div>
-                        <input type="radio" id="status" class="taskStatus" name="status" value="status" checked>
-                        Incomplete<br>
-                        <input type="radio" id="status" class="taskStatus" name="status" value="status"> In Progress<br>
-                        <input type="radio" id="status" class="taskStatus" name="status" value="status"> Completed
-                    </div>
-
-                    <div>
                         <label for="priority">Priority</label>
                         <input type="number" id="priority" class="taskPriority" name="priority" value="priority" min="1"
                             max="3">
@@ -38,32 +31,31 @@
                         <button class="milestone" type="button" onClick=add()>Add Milestone</button>
                     </div>
                     <div class="row">
-                        <button class="taskAdd" name="taskAdd" type="submit">Add
+                        <button class="taskAdd" name="taskAdd" type="submit" value="Post">Add
                             task</button>
-                        <button class="taskDelete" name="taskDelete" formnovalidate="" type="submit"
-                            onclick="$('input#sublist').click();"><i class="fa fa-trash-o icon"></i>Delete
-                            Tasks</button>
                     </div>
+                </form>
+                <div>
                     <ol class="taskList">
-                        {% for todo in todos %}
+                        {% for task in tasks %}
                         <li class="taskItem">
                             
-                            {{todo.title}}
+                            {{task.title}}
                         
                             <ul class="taskList">
                                 <li class="taskItem">
-                                    Due Date: {{todo.due_date}} <br>
-                                    Priority: {{todo.priority}} <br>
+                                    Due Date: {{task.due_date}} <br>
+                                    Priority: {{task.priority}} <br>
                                     Milestone:
                                     <ol>
-                                        {% for milestone in milestones %}
-                                        {% if milestone.task_id == todo %}
+                                        {% for task_milestone in task_milestones %}
+                                        {% if task_milestone.task_id == task %}
                                         <li>
                                             <div class="alignleft">
-                                                {{milestone.description}}
+                                                {{task_milestone.milestone}}
                                             </div>
                                             <div class="alignright">
-                                                {{milestone.status}}
+                                                {{task_milestone.status}}
                                             </div>
                                         </li>
                                         {% endif %}
@@ -74,7 +66,7 @@
                         </li>
                         {% endfor %}
                     </ol><!-- taskList -->
-                </form>
+                </div>
             </div><!-- content -->
         </div><!-- container -->
     </div>

@@ -1,24 +1,25 @@
+CREATE TYPE task_priority AS ENUM ('Low', 'Medium', 'High');
+CREATE TYPE task_status AS ENUM ('Incomplete', 'In Progress', 'Complete');
 
-CREATE TABLE user (
-ID INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE spr_user (
+ID SERIAL,
 Name VARCHAR(50) NOT NULL,
 Role VARCHAR(20) NOT NULL,
 PRIMARY KEY (ID));
 
-CREATE TABLE todolist (
-ID INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE task (
+ID SERIAL,
 Title VARCHAR(80) NOT NULL,
 Due_Date DATE NOT NULL,
-Priority ENUM('1', '2', '3'), 
+Priority task_priority, 
 PRIMARY KEY (ID));
 
-CREATE TABLE milestone (
-    ID INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE task_milestone (
+    ID SERIAL,
     Task_ID INT NOT NULL,
-    Description VARCHAR(200),
-    Status ENUM('Incomplete', 'In Progress', 'Complete'),
-    ordering TINYINT NOT NULL,
+    Milestone VARCHAR(200),
+    Status task_status,
     PRIMARY KEY (ID, task_ID),
-    FOREIGN KEY (task_ID) REFERENCES todolist(ID) ON DELETE CASCADE);
+    FOREIGN KEY (task_ID) REFERENCES task(ID) ON DELETE CASCADE);
 
 
