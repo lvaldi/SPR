@@ -16,8 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from user.views import sign_in_view
-from task.views import index
-from api.models import TaskResource
+from task.api import TaskResource
 
 task_resource = TaskResource()
 
@@ -25,6 +24,6 @@ task_resource = TaskResource()
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', sign_in_view.as_view(), name='home'),
-    path('task/', index.as_view(), name='task'),
+    path('task/', include('task.urls')),
     path('api/', include(task_resource.urls))
 ]

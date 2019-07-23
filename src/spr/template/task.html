@@ -38,6 +38,7 @@
                 <div>
                     <ol class="taskList">
                         {% for task in tasks %}
+                        {% if task.parent_task.id == NULL %}
                         <li class="taskItem">
                             
                             {{task.title}}
@@ -48,14 +49,14 @@
                                     Priority: {{task.priority}} <br>
                                     Milestone:
                                     <ol>
-                                        {% for task_milestone in task_milestones %}
-                                        {% if task_milestone.task_id == task %}
+                                        {% for sub_task in tasks %}
+                                        {% if sub_task.parent_task.id == task.id%}
                                         <li>
                                             <div class="alignleft">
-                                                {{task_milestone.milestone}}
+                                                {{sub_task.sub_task}}
                                             </div>
                                             <div class="alignright">
-                                                {{task_milestone.status}}
+                                                {{sub_task.status}}
                                             </div>
                                         </li>
                                         {% endif %}
@@ -64,6 +65,7 @@
                                 </li>
                             </ul>
                         </li>
+                        {% endif %}
                         {% endfor %}
                     </ol><!-- taskList -->
                 </div>
