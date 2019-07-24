@@ -6,35 +6,7 @@
     <div django-app="TaskManager">
         <div class="container">
             <div class="content">
-                <h1>Task Manager</h1>
-                <form action="" method="post">
-                    {% csrf_token %}
-                    <!-- csrf token for basic security -->
-                    <div>
-                        <input type="text" id="title" class="taskName" placeholder="Task" name="title"><br>
-                        <label for="title">Title</label>
-                    </div>
-                    <div>
-                        <input type="date" id="dueDate" class="taskDate" name="date"><br>
-                        <label for="dueDate">Due Date</label>
-                    </div>
-                    <div>
-                        <label for="priority">Priority</label>
-                        <input type="number" id="priority" class="taskPriority" name="priority" value="priority" min="1"
-                            max="3">
-                    </div>
-                    <div>
-                        <ol type="1" id="addMilestone">
-                            <br>
-                            <label for="milestone">milestone</label><br>
-                        </ol>
-                        <button class="milestone" type="button" onClick=add()>Add Milestone</button>
-                    </div>
-                    <div class="row">
-                        <button class="taskAdd" name="taskAdd" type="submit" value="Post">Add
-                            task</button>
-                    </div>
-                </form>
+                <h1>To Do List</h1>
                 <div>
                     <ol class="taskList">
                         {% for task in tasks %}

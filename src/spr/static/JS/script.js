@@ -2,16 +2,25 @@ function add() {
 
 	//Create an input type dynamically.
 	var list = document.createElement("LI");
-	var element = document.createElement("INPUT")
+	var milestone = document.createElement("INPUT");
 
+	var array = ["Incomplete", "In Progress", "Completed"];
+	var status = document.createElement("SELECT");
+
+	for (var i = 0; i < array.length; i++) {
+		var option = document.createElement("option");
+		option.value = array[i];
+		option.text = array[i];
+		status.append(option);
+	}
 
 	//Assign different attributes to the element.
-	element.setAttribute("type", "text");
-	element.setAttribute("value", "");
-	element.setAttribute("name", "milestone");
+	milestone.setAttribute("type", "text");
+	milestone.setAttribute("value", "");
+	milestone.setAttribute("name", "milestone");
 
-
-	list.appendChild(element);
+	list.appendChild(milestone);
+	list.appendChild(status);
 
 	// 'addMilestone' is the div id, where new fields are to be added
 	var add_milestone = document.getElementById("addMilestone");
